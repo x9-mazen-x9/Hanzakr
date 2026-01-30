@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- استدعاء خط "كايرو" ليعطي طابع عربي عصري -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>منصة هنذاكر | أحسن دراسة أحياء</title>
+
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="logo">
+            هنذا
+                <i class="fas fa-dna"></i>
+            <span>كر</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">الرئيسية</a></li>
+                <li><a href="#pricing">الباقات</a></li>
+                <li><a href="#about">عن المنصة</a></li>
+            </ul>
+        </nav>
+        <a href="login.html" class="btn btn-primary">دخول الطلاب</a>
+    </header>
+
+
+    <main>
+        <!-- ================= الصفحة الرئيسية ================= -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>الأحياء مش صعبه،<br>لو درستها <span>صح</span></h1>
+                    <p>منصة تعليمية متكاملة تغطي مناهج الأول والثاني والثالث الثانوي. شرح مبسط، ملخصات ذكية، وامتحانات تجعلك تستعد للثانوية بقوة.</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">ابدأ رحلتك الآن</button>
+                </div>
+                <div class="hero-image">
+                    <!-- 
+                        تعليق للمصمم: هذه الصورة تعبر عن طالب يدرس الأحياء بسعادة.
+                        يرجى استبدال الرابط أدناه بصورة عالية الجودة لطالب ومعمل أحياء.
+                    -->
+                    <img src="./download-removebg-preview__2__LE_upscale_prime-removebg-preview.png" alt="صورة طالب يدرس الأحياء">
+                </div>
+            </div>
+
+            <div id="pricing" class="pricing-section">
+                <h2 class="section-title">اختر الباقة المناسبة لك</h2>
+                <div class="pricing-grid">
+                    <!-- باقة 1 -->
+                    <div class="pricing-card">
+                        <h3>باقة التجربة</h3>
+                        <div class="price">150 <span>ج.م</span></div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> الوحدة الأولى فقط</li>
+                            <li><i class="fas fa-check-circle"></i> فيديوهات شرح</li>
+                            <li><i class="fas fa-check-circle"></i> اختبار قصير</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 20px;">اشترك الآن</button>
+                    </div>
+
+                    <!-- باقة 2 (المميزة) -->
+                    <div class="pricing-card featured">
+                        <div class="badge">الأكثر طلباً</div>
+                        <h3>الباقة الشاملة</h3>
+                        <div class="price">800 <span>ج.م</span></div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> الترم كامل (3 وحدات)</li>
+                            <li><i class="fas fa-check-circle"></i> بنك أسئلة ضخم</li>
+                            <li><i class="fas fa-check-circle"></i> جروب مراجعة مباشر</li>
+                            <li><i class="fas fa-check-circle"></i> حل الامتحانات</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">اشترك الآن</button>
+                    </div>
+
+                    <!-- باقة 3 -->
+                    <div class="pricing-card">
+                        <h3>باقة الشهر</h3>
+                        <div class="price">300 <span>ج.م</span></div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> اشتراك لمدة شهر</li>
+                            <li><i class="fas fa-check-circle"></i> الوصول لكل الدروس</li>
+                            <li><i class="fas fa-check-circle"></i> تجديد تلقائي</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 20px;">اشترك الآن</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+
+
+    <!-- الفوتر -->
+<footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: var(--white); margin-bottom: 15px;">هنذا
+                <i class="fas fa-dna"></i>
+            <span>كر</span>
+        </div>
+                <p style="color: #ccc; font-size: 0.9rem;">أول منصة متخصصة في مواد العلوم الطبيعية بمصر. نهدف لتبسيط المفاهيم وضمان التفوق.</p>
+            </div>
+            <div class="footer-col">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">الباقات</a></li>
+                    <li><a href="#">تسجيل دخول</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 01000000000</li>
+                    <li><i class="fas fa-envelope"></i> info@handhakir.com</li>
+                </ul>
+                <div style="margin-top: 20px; font-size: 1.2rem;">
+                    <i class="fab fa-facebook" style="margin-left: 15px; cursor: pointer;"></i>
+                    <i class="fab fa-instagram" style="margin-left: 15px; cursor: pointer;"></i>
+                    <i class="fab fa-youtube" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            جميع الحقوق محفوظة © 2023 منصة هنذاكر
+        </div>
+    </footer>
+</body>
+</html>

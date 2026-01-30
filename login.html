@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- استدعاء خط "كايرو" ليعطي طابع عربي عصري -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>منصة هنذاكر | أحسن دراسة أحياء</title>
+
+</head>
+<body>
+        <!-- الهيدر -->
+    <header>
+        <div class="logo">
+            هنذا
+                <i class="fas fa-dna"></i>
+            <span>كر</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">الرئيسية</a></li>
+                <li><a href="#pricing">الباقات</a></li>
+                <li><a href="#about">عن المنصة</a></li>
+            </ul>
+        </nav>
+        <a href="login.html" class="btn btn-primary">دخول الطلاب</a>
+    </header>
+    <!-- ================= صفحة تسجيل الدخول ================= -->
+    <main>
+        <section id="login" class="section">
+            <div class="login-container">
+                <h2 style="margin-bottom: 30px; color: var(--secondary-color);">تسجيل دخول الطلاب</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>رقم الهاتف أو البريد الإلكتروني</label>
+                        <input type="text" class="form-control" placeholder="أدخل بياناتك" required>
+                    </div>
+                    <div class="form-group">
+                        <label>كلمة المرور</label>
+                        <input type="password" class="form-control" placeholder="******" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">دخول</button>
+                </form>
+                <p style="margin-top: 20px; font-size: 0.9rem;">ليس لديك حساب؟ <a href="#" style="color: var(--primary-color); font-weight: bold;">تواصل معنا</a></p>
+            </div>
+        </section>
+    </main>
+    <!-- الفوتر -->
+<footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: var(--white); margin-bottom: 15px;">هنذا
+                <i class="fas fa-dna"></i>
+            <span>كر</span>
+        </div>
+                <p style="color: #ccc; font-size: 0.9rem;">أول منصة متخصصة في مواد العلوم الطبيعية بمصر. نهدف لتبسيط المفاهيم وضمان التفوق.</p>
+            </div>
+            <div class="footer-col">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">الباقات</a></li>
+                    <li><a href="#">تسجيل دخول</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 01000000000</li>
+                    <li><i class="fas fa-envelope"></i> info@handhakir.com</li>
+                </ul>
+                <div style="margin-top: 20px; font-size: 1.2rem;">
+                    <i class="fab fa-facebook" style="margin-left: 15px; cursor: pointer;"></i>
+                    <i class="fab fa-instagram" style="margin-left: 15px; cursor: pointer;"></i>
+                    <i class="fab fa-youtube" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            جميع الحقوق محفوظة © 2023 منصة هنذاكر
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
