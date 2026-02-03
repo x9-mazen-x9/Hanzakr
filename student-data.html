@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>تسجيل بيانات الطالب | منصة هنذاكر</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            هنذا <i class="fas fa-dna"></i> <span>كر</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="login.html">دخول</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="display: block; max-width: 600px; margin: 0 auto;">
+            <div class="section-title">بيانات الطالب</div>
+            <div class="login-container" style="margin-top: 30px;">
+                <form onsubmit="submitData(event)">
+                    <div class="form-group">
+                        <label>الاسم بالكامل</label>
+                        <input type="text" class="form-control" required placeholder="أدخل اسم الطالب">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف (المسجل عليه واتساب)</label>
+                        <input type="tel" class="form-control" required placeholder="01xxxxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>الصف الدراسي</label>
+                        <select class="form-control">
+                            <option>الصف الأول الثانوي</option>
+                            <option>الصف الثاني الثانوي</option>
+                            <option>الصف الثالث الثانوي</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>اسم المدرسة</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">تأكيد وحفظ البيانات</button>
+                </form>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #777;">
+                    سيتم مراجعة البيانات وتفعيل حسابك في غضون 15 دقيقة.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+    <script>
+        function submitData(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.innerText = 'جاري الحفظ...';
+            setTimeout(() => {
+                // الانتقال لصفحة الإشعارات
+                window.location.href = 'notifications.html';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

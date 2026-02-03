@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>الإشعارات | منصة هنذاكر</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            هنذا <i class="fas fa-dna"></i> <span>كر</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="login.html">دخول الطلاب</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="display: block;">
+            <div class="section-title">
+                <i class="fas fa-bell" style="color: var(--accent-color);"></i> آخر الإشعارات
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                
+                <!-- إشعار 1 -->
+                <div class="notification-card">
+                    <div class="notification-content">
+                        <h4>تنبيه هام: امتحان الوحدة الأولى الأحد القادم</h4>
+                        <p style="color: #555; margin-top: 5px;">يرجى من كافة الطلاب المراجعة الجيدة للمحاضرات الأربع.</p>
+                    </div>
+                    <div class="notification-meta">
+                        <span class="new-badge">جديد</span>
+                        <div class="notification-date">اليوم</div>
+                    </div>
+                </div>
+
+                <!-- إشعار 2 -->
+                <div class="notification-card" style="border-right-color: var(--primary-color);">
+                    <div class="notification-content">
+                        <h4>تم تفعيل حسابك بنجاح</h4>
+                        <p style="color: #555; margin-top: 5px;">يمكنك الآن الدخول ومتابعة الدروس.</p>
+                    </div>
+                    <div class="notification-meta">
+                        <span class="new-badge" style="background: var(--secondary-color);">معلومة</span>
+                        <div class="notification-date">أمس</div>
+                    </div>
+                </div>
+
+                <!-- إشعار 3 -->
+                <div class="notification-card" style="border-right-color: #3498db;">
+                    <div class="notification-content">
+                        <h4>مراجعة مباشرة للكيمياء الليلة</h4>
+                        <p style="color: #555; margin-top: 5px;">الساعة 8 مساءً على رابط الجروب.</p>
+                    </div>
+                    <div class="notification-meta">
+                        <div class="notification-date">منذ يومين</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="login.html" class="btn btn-primary">الذهاب للدخول</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="copyright">جميع الحقوق محفوظة © 2026 منصة هنذاكر</div>
+    </footer>
+</body>
+</html>
