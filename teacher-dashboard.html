@@ -20,7 +20,7 @@
 
         .teacher-layout {
             display: flex;
-            min-height: 100vh; /* بدلاً من 100vh لمنع المشاكل في الـ mobile */
+            min-height: 100vh;
             background: var(--teacher-bg);
             margin: 0;
             font-family: 'Cairo', sans-serif;
@@ -38,10 +38,15 @@
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             flex-shrink: 0;
             height: 100vh;
-            position: sticky;
+            position: fixed; /* ثابتة في الموبايل والديسكتوب */
             top: 0;
+            right: -260px; /* مخفية خارج الشاشة افتراضياً */
+            z-index: 1000; /* فوق كل المحتوى */
             transition: 0.3s ease;
         }
+
+        /* إظهار السايد بار */
+        .teacher-layout .sidebar.active { right: 0; }
 
         .teacher-layout .sidebar-header { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         
@@ -97,7 +102,7 @@
         }
         .user-info img { width: 40px; height: 40px; border-radius: 50%; }
 
-        /* زر الموبايل (مخفي في الديسكتوب) */
+        /* زر الموبايل */
         .mobile-toggle {
             display: none;
             background: transparent;
@@ -141,18 +146,25 @@
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            overflow-x: auto; /* لعمل Scroll افقي للجداول في الموبايل */
+            overflow-x: auto; 
         }
 
         .teacher-layout .custom-table { width: 100%; border-collapse: collapse; min-width: 600px; }
         .teacher-layout .custom-table th { text-align: right; padding: 15px; color: #777; border-bottom: 2px solid #eee; }
         .teacher-layout .custom-table td { padding: 15px; border-bottom: 1px solid #f9f9f9; }
 
-        /* --- Badges & Buttons --- */
-        .teacher-layout .badge { padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; display: inline-block;}
-        .teacher-layout .badge-success { background: #e8f5e9; color: #2ecc71; }
-        .teacher-layout .badge-warning { background: #fff3cd; color: #856404; }
-        .teacher-layout .badge-danger { background: #f8d7da; color: #721c24; }
+        /* --- Taps (بديل للـ Badges) --- */
+        .teacher-layout .tap { 
+            padding: 5px 12px; 
+            border-radius: 20px; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            display: inline-block;
+            white-space: nowrap; /* لمنع كسر النص */
+        }
+        .teacher-layout .tap-success { background: #e8f5e9; color: #2ecc71; }
+        .teacher-layout .tap-warning { background: #fff3cd; color: #856404; }
+        .teacher-layout .tap-danger { background: #f8d7da; color: #721c24; }
 
         .teacher-layout .action-btn {
             background: #f0f0f0; border: none; padding: 8px 15px;
@@ -194,7 +206,11 @@
         .teacher-layout .modal-header { padding: 25px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 20px; background: #f9f9f9; flex-wrap: wrap; }
         .teacher-layout .close-modal { position: absolute; top: 20px; left: 20px; background: #eee; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; }
         .teacher-layout .close-modal:hover { background: #e74c3c; color: #fff; }
-        .teacher-layout .student-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-bottom: 20px; }
+        .teacher-layout .student-stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* تم تصحيح الخطأ هنا */
+            gap: 10px; margin-bottom: 20px; 
+        }
         .teacher-layout .mini-stat { background: #f8f9fa; padding: 10px; border-radius: 10px; text-align: center; }
         .teacher-layout .mini-stat h4 { margin: 0; color: #2c3e50; font-size: 1.2rem; }
         
@@ -204,40 +220,37 @@
 
         /* =================== Responsive Mobile Styles =================== */
         @media (max-width: 768px) {
-            /* Sidebar يتحول لقائمة منزلقة */
-            .teacher-layout .sidebar {
-                position: fixed;
-                top: 0;
-                right: -260px; /* مخفية خارج الشاشة */
-                z-index: 9999;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-                transition: 0.3s ease;
-            }
-            
-            /* تفعيل السايد بار */
-            .teacher-layout .sidebar.active { right: 0; }
+            /* Sidebar */
+            .teacher-layout .sidebar { right: -260px; } /* مخفية */
+            .teacher-layout .sidebar.active { right: 0; } /* تظهر فوق */
 
             /* إظهار زر القائمة */
             .mobile-toggle { display: block; }
 
-            /* المحتوى يأخذ عرض كامل */
+            /* المحتوى لا يتحرك (لا نستخدم pushed) */
             .teacher-layout .main-content { padding: 15px; width: 100%; }
 
-            /* الجداول تعمل Scroll افقي */
+            /* الجداول */
             .teacher-layout .table-container { padding: 10px; }
             .teacher-layout .custom-table { font-size: 0.9rem; }
 
-            /* التحريك للمحتوى عند فتح القائمة */
-            .teacher-layout .main-content.pushed { transform: translateX(-260px); }
-
-            /* الجريد تصبح عمود واحد */
+            /* الجريد */
             .teacher-layout .stats-grid { grid-template-columns: 1fr; }
             .teacher-layout .form-row { grid-template-columns: 1fr; }
             
-            /* تعديلات المودال */
+            /* مودال */
             .teacher-layout .modal-header { flex-direction: column; text-align: center; }
             .teacher-layout .modal-header img { margin-bottom: 10px; }
             .teacher-layout .student-stats-grid { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        /* Desktop Default: Sidebar is visible by default */
+        @media (min-width: 769px) {
+            .teacher-layout .sidebar {
+                position: sticky;
+                right: 0;
+                display: flex !important; /* دائماً ظاهرة */
+            }
         }
 
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
@@ -306,9 +319,9 @@
                 <table class="custom-table">
                     <thead><tr><th>الاسم</th><th>الصف</th><th>الباقة</th><th>الحالة</th><th>الإجراء</th></tr></thead>
                     <tbody>
-                        <tr><td>مازن محمد</td><td>الثاني الثانوي</td><td>الباقة الشاملة</td><td><span class="badge badge-success">نشط</span></td><td><button class="action-btn">عرض</button></td></tr>
-                        <tr><td>أحمد علي</td><td>الأول الثانوي</td><td>باقة شهر</td><td><span class="badge badge-warning">قيد المراجعة</span></td><td><button class="action-btn">مراجعة</button></td></tr>
-                        <tr><td>سارة يوسف</td><td>الثالث الثانوي</td><td>الباقة التجريبية</td><td><span class="badge badge-danger">غير مدفوع</span></td><td><button class="action-btn">تنبيه</button></td></tr>
+                        <tr><td>مازن محمد</td><td>الثاني الثانوي</td><td>الباقة الشاملة</td><td><span class="tap tap-success">نشط</span></td><td><button class="action-btn">عرض</button></td></tr>
+                        <tr><td>أحمد علي</td><td>الأول الثانوي</td><td>باقة شهر</td><td><span class="tap tap-warning">قيد المراجعة</span></td><td><button class="action-btn">مراجعة</button></td></tr>
+                        <tr><td>سارة يوسف</td><td>الثالث الثانوي</td><td>الباقة التجريبية</td><td><span class="tap tap-danger">غير مدفوع</span></td><td><button class="action-btn">تنبيه</button></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -357,11 +370,11 @@
             <h3>سجل التنبيهات والاشعارات</h3>
             <div class="notif-item notif-new">
                 <div><strong>امتحان قريب: الوحدة الأولى</strong><p>موعد الامتحان يوم الأحد القادم الساعة 10 صباحاً.</p></div>
-                <span class="badge badge-danger">جديد</span>
+                <span class="tap tap-danger">جديد</span>
             </div>
             <div class="notif-item">
                 <div><strong>صيانة النظام</strong><p>سيتم عمل صيانة للموقع يوم الجمعة لمدة ساعتين.</p></div>
-                <span class="badge badge-success">منذ يومين</span>
+                <span class="tap tap-success">منذ يومين</span>
             </div>
         </div>
     </main>
@@ -406,16 +419,15 @@
             // في الموبايل، عند اختيار تبويب، أغلق السايد بار
             if(window.innerWidth <= 768) {
                 document.getElementById('sidebar').classList.remove('active');
-                document.getElementById('mainContent').classList.remove('pushed');
+                // لا نستخدم pushed بعد الآن
             }
         }
 
-        // تحكم في السايد بار (موبايل)
+        // تحكم في السايد بار (موبايل) - يظهر فوق المحتوى فقط
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
-            const main = document.getElementById('mainContent');
             sidebar.classList.toggle('active');
-            main.classList.toggle('pushed');
+            // تمت إزالة السطر الخاص بـ pushed لأننا لا نريد دفع المحتوى
         }
 
         // Modal Logic
